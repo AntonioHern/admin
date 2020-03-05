@@ -21,7 +21,11 @@ Route::resource('/usuarios','UserController');
 
 Route::resource('/pacientes','PacienteController');
 
-Route::resource('tratamientos', 'TratamientoController');
+Route::resource('/tratamientos', 'TratamientoController');
+
+Route::get('/tratamientos/create/{dni}', 'TratamientoController@create');
+
+
 
 
 

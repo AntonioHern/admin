@@ -21,7 +21,7 @@
             </div>
             <div class="col-8 justify-content-center align-content-center text-center">
 
-                <h2>Listas de tratamientos <a href="{{route('tratamientos.create')}}">
+                <h2>Listas de tratamientos <a href="{{route('tratamientos.create',['dni'=>$paciente->dni])}}">
                         <button type="button" class="btn btn-success float-right ml-5">Agregar tratamiento</button>
                     </a></h2>
 

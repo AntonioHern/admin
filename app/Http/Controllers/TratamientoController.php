@@ -24,10 +24,11 @@ class TratamientoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function create()
+    public function create(Request $request)
     {
 
-        return view('tratamientos.create');
+        $dni=$request->dni;
+        return view('tratamientos.create', ['paciente' => Paciente::findOrFail($dni)]);
 
     }
 

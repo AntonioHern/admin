@@ -1,23 +1,34 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <form action="{{route('tratamientos.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('tratamientos.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+                <div class="col-sm-4">
                     @csrf
                     <div class="form-group">
                         <label for="paciente">Paciente</label>
-                        <input type="text" class="form-control" name="paciente" value="" placeholder="DNI">
+                        <input type="text" class="form-control" name="paciente" value="{{$paciente->dni}}" readonly
+                               placeholder="DNI">
                     </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre Paciente</label>
+                        <input type="text" class="form-control" name="nombre" value="{{$paciente->nombre}}" readonly
+                               placeholder="DNI">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido1">Primer Apellido</label>
+                        <input type="text" class="form-control" name="apellido1" value="{{$paciente->apellido1}}"
+                               readonly placeholder="DNI">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido2">Primer Apellido</label>
+                        <input type="text" class="form-control" name="apellido1" value="{{$paciente->apellido2}}"
+                               readonly placeholder="DNI">
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="nMedicina">Nombre Medicina</label>
                         <input type="text" class="form-control" name="nMedicina" placeholder="Nombre">
@@ -32,12 +43,13 @@
                     </div>
                     <div class="form-group">
                         <label for="stock">Stock</label>
-                        <input type="number" class="form-control" name="stock"placeholder="Stock">
+                        <input type="number" class="form-control" name="stock" placeholder="Stock">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-danger">Cancelar</button>
-                </form>
+                </div>
             </div>
-        </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-danger">Cancelar</button>
+        </form>
+
     </div>
 @endsection

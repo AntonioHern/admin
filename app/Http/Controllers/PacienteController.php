@@ -137,4 +137,6 @@ class PacienteController extends Controller
         $paciente->delete();
         return redirect('/pacientes');
     }
+
+
 }
