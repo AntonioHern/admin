@@ -5,7 +5,6 @@
             @csrf
             <div class="row">
                 <div class="col-sm-4">
-                    @csrf
                     <div class="form-group">
                         <label for="paciente">Paciente</label>
                         <input type="text" class="form-control" name="paciente" value="{{$paciente->dni}}" readonly
@@ -22,8 +21,8 @@
                                readonly placeholder="DNI">
                     </div>
                     <div class="form-group">
-                        <label for="apellido2">Primer Apellido</label>
-                        <input type="text" class="form-control" name="apellido1" value="{{$paciente->apellido2}}"
+                        <label for="apellido2">Segundo Apellido</label>
+                        <input type="text" class="form-control" name="apellido2" value="{{$paciente->apellido2}}"
                                readonly placeholder="DNI">
                     </div>
                 </div>

@@ -35,7 +35,6 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th scope="col">Paciente</th>
                         <th scope="col">Medicina</th>
                         <th scope="col">Dosis</th>
                         <th scope="col">Cada</th>
@@ -49,8 +48,7 @@
                     ?>
                         @foreach($tratamientos as $trat)
                         <tr>
-                            <th scope="row">{{$trat->paciente}}</th>
-                            <td>{{$trat->nMedicina}}</td>
+                            <th scope="row">{{$trat->nMedicina}}</th>
                             <td>{{$trat->dosis}}</td>
                             <td>{{$trat->cada}}</td>
                             <td>{{$trat->stock}}</td>
