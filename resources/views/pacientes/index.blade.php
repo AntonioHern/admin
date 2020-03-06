@@ -50,5 +50,4 @@
             {{ $pacientes->links() }}
         </div>
     </div>
-
 @endsection

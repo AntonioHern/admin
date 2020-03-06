@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Mensaje;
 use App\User;
 use Illuminate\Http\Request;
@@ -15,7 +14,11 @@ class MensajeController extends Controller
      */
     public function index()
     {
-        //
+        $mensajes=Mensaje::where('receptor_id','=',auth()->id())->get();
+        $usuarios=User::where('id','!=',auth()->id())->get();
+        return view('mensajes.index',['mensajes'=>$mensajes,
+            'usuarios'=>$usuarios,
+        ]);
     }
 
     /**
@@ -47,7 +50,14 @@ class MensajeController extends Controller
      */
     public function show($id)
     {
-        return view('mensajes.show', ['receptor_id' => Mensaje::findOrFail($id)]);
+        $mensaje=Mensaje::findOrFail($id);
+        $idUsuario=$mensaje->enviador_id;
+        $usuario=User::findOrFail($idUsuario);
+        return view('mensajes.show',[
+            'mensaje'=>$mensaje,
+            'usuario'=>$usuario
+        ]);
+
     }
 
     /**
@@ -81,6 +91,8 @@ class MensajeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mensaje= Mensaje::findOrFail($id);
+        $mensaje->delete();
+        return redirect('/mensajes');
     }
 }

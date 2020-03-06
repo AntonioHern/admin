@@ -8,14 +8,17 @@
                     <div class="card-header">Enviar mensaje</div>
                     <form action="{{route('store')}}" method="post">
                         @csrf
-                        <div class="card-body">
+                        <div class="card-body shadow-lg">
                             <div class="form-group">
                                 <select name="receptor_id" class="form-control">
                                     <option value="">Selecciona al usuario</option>
                                     @foreach($usuarios as $usu)
-                                        <option value="{{$usu->id}}">{{$usu->name}}</option>
+                                        <option value="{{$usu->id}}">{{$usu->name}} {{$usu->apellido1}}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <input  type="text" name="asunto" class="form-group" placeholder="Asunto">
                             </div>
                             <div class="form-group">
                                 <textarea name="cuerpo" class="form-control" placeholder="Escriba aquí su mensaje"></textarea>

@@ -33,9 +33,12 @@ class HomeController extends Controller
         Mensaje::create([
                 'enviador_id'=>auth()->id(),
                 'receptor_id'=>$request->receptor_id,
+                'asunto'=>$request->asunto,
                 'cuerpo'=>$request->cuerpo,
         ]);
         return back()->with('flash','Tu mensaje fué enviado');
     }
+
+
 
 }

@@ -1,5 +1,3 @@
-
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -17,8 +15,9 @@ class CreateMensajesTable extends Migration
     {
         Schema::create('mensajes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('enviador_id');
-            $table->unsignedInteger('receptor_id');
+            $table->integer('enviador_id');
+            $table->integer('receptor_id');
+            $table->text('asunto');
             $table->text('cuerpo');
             $table->timestamps();
         });

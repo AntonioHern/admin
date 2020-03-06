@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-4 ">
-                <div class="jumbotron jumbotron-fluid">
+                <div class="jumbotron jumbotron-fluid shadow-lg">
                     <div class="container">
                         <img class="img-thumbnail" height="200" width="200"
                              src="{{asset('imagenes/'.$paciente->foto)}}">

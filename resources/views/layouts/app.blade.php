@@ -58,7 +58,7 @@
                 <li><a href="/" class="mr-4 link-black">Enviar mensaje</a> </li>
                 <?php use App\Mensaje;
                 $mensajes_count = Mensaje::where('receptor_id','=',auth()->id())->count();?>
-                <li><a href="{{route('mensajes.show',auth()->id())}}" class="mr-4 link-black">Notificaciones <span class="badge badge-warning">{{$mensajes_count}}</span> </a> </li>
+                <li><a href="{{route('mensajes.index',auth()->id())}}" class="mr-4 link-black">Notificaciones <span class="badge badge-warning">{{$mensajes_count}}</span> </a> </li>
             </ul>
         </nav>
         <!-- /.navbar -->
