@@ -198,19 +198,20 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
+        <footer class="main-footer text-center">
             <!-- NO QUITAR -->
-            <strong>Antonio
-                <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 1.0
+            <strong>&#169;Antonio</strong>
+                <div class=" d-none d-sm-inline-block ml-4">
+                    <b>Version</b> 1.2
                 </div>
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
         </footer>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+
     </div>
 </div>
 </body>

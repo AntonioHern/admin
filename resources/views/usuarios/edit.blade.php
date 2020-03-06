@@ -35,11 +35,11 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" name="password" value="{{$user->password}}" placeholder="Escribe tu contraseña">
+                        <input type="password" class="form-control" name="password" value="" placeholder="Escribe tu contraseña">
                     </div>
                     <div class="form-group">
                         <label for="foto">Foto</label>
-                        <input type="file" class="form-control" name="foto" value="{{$user->foto}}" placeholder="Foto">
+                        <input type="file" class="form-control" name="foto" value="{{asset('imagenes/'.$user->foto)}}" placeholder="Foto">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>

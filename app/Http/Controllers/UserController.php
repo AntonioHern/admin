@@ -117,7 +117,7 @@ class UserController extends Controller
         $usuario->apellido1 = $request->get('apellido1');
         $usuario->apellido2 = $request->get('apellido2');
         $usuario->email = $request->get('email');
-        $usuario->password= $request->get('password');
+        $usuario->password= bcrypt($request->get('password'));
         $usuario->foto=$nFoto;
 
         $usuario->update();
