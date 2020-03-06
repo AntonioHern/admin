@@ -34,15 +34,15 @@
                     </div>
                     <div class="form-group">
                         <label for="dosis">Dosis</label>
-                        <input type="number" class="form-control" name="dosis" placeholder="Dosis">
+                        <input type="number" class="form-control" name="dosis"  step="any" placeholder="Dosis">
                     </div>
                     <div class="form-group">
                         <label for="cada">Frecuencia</label>
-                        <input type="number" class="form-control" name="cada" placeholder="Frecuencia">
+                        <input type="number" class="form-control" name="cada" step="any" placeholder="Frecuencia">
                     </div>
                     <div class="form-group">
                         <label for="stock">Stock</label>
-                        <input type="number" class="form-control" name="stock" placeholder="Stock">
+                        <input type="number" class="form-control" name="stock"  placeholder="Stock">
                     </div>
                 </div>
             </div>

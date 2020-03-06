@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mensaje;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $usuarios=User::where('id','!=',auth()->id())->get();
+        return view('home',['usuarios'=>$usuarios]);
     }
+    public function store(Request $request)
+    {
+        Mensaje::create([
+                'enviador_id'=>auth()->id(),
+                'receptor_id'=>$request->receptor_id,
+                'cuerpo'=>$request->cuerpo,
+        ]);
+        return back()->with('flash','Tu mensaje fué enviado');
+    }
+
 }

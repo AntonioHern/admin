@@ -14,8 +14,13 @@
 
 
 Auth::routes();
-
 Route::get('/', 'HomeController@index')->name('home');
+Route::resource('/', 'HomeController');
+
+
+
+
+Route::resource('/mensajes', 'MensajeController');
 
 Route::resource('/usuarios','UserController');
 
@@ -23,7 +28,7 @@ Route::resource('/pacientes','PacienteController');
 
 Route::resource('/tratamientos', 'TratamientoController');
 
-Route::get('/tratamientos/create/{dni}', 'TratamientoController@create');
+
 
 
 

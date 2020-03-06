@@ -52,6 +52,16 @@
                             <td>{{$trat->dosis}}</td>
                             <td>{{$trat->cada}}</td>
                             <td>{{$trat->stock}}</td>
+                            <td>
+                                <form action="{{route('tratamientos.destroy',$trat->id)}}" method="post">
+                                    <a href="{{route('tratamientos.edit',$trat->id)}}">
+                                        <button type="button" class="btn btn-primary">Editar</button>
+                                    </a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </td>
                         <tr/>
                             @endforeach
 

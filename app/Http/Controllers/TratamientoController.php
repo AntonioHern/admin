@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Paciente;
 use App\Tratamiento;
+use App\User;
 use Illuminate\Http\Request;
 
 class TratamientoController extends Controller
@@ -41,11 +42,11 @@ class TratamientoController extends Controller
     public function store(Request $request)
     {
         $tratamiento= new Tratamiento();
-        $tratamiento->paciente=$request->paciente;
-        $tratamiento->nMedicina=$request->nMedicina;
-        $tratamiento->dosis=$request->dosis;
-        $tratamiento->cada=$request->cada;
-        $tratamiento->stock=$request->stock;
+        $tratamiento->paciente=$request->get('paciente');
+        $tratamiento->nMedicina=$request->get('nMedicina');
+        $tratamiento->dosis=$request->get('dosis');
+        $tratamiento->cada=$request->get('cada');
+        $tratamiento->stock=$request->get('stock');
         $tratamiento->save();
 
         $dni=$request->paciente;
@@ -72,7 +73,7 @@ class TratamientoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('tratamientos.edit', ['tratamiento' => Tratamiento::findOrFail($id)]);
     }
 
     /**
@@ -84,7 +85,16 @@ class TratamientoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tratamiento=Tratamiento::findOrFail($id);
+        $tratamiento->paciente=$request->get('paciente');
+        $tratamiento->nMedicina=$request->get('nMedicina');
+        $tratamiento->dosis=$request->get('dosis');
+        $tratamiento->cada=$request->get('cada');
+        $tratamiento->stock=$request->get('stock');
+        $tratamiento->update();
+        $paciente=$tratamiento->paciente;
+        return redirect('/pacientes/'.$paciente);
+
     }
 
     /**
@@ -95,6 +105,9 @@ class TratamientoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tratamiento=Tratamiento::findOrFail($id);
+        $paciente=$tratamiento->paciente;
+        $tratamiento->delete();
+        return redirect('/pacientes/'.$paciente);
     }
 }
