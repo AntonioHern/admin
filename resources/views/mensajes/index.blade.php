@@ -13,7 +13,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col">FECHA</th>
                 <th scope="col">ENVIADO POR</th>
                 <th scope="col">ASUNTO</th>
             </tr>
@@ -22,20 +22,20 @@
             @foreach( $mensajes as $men)
                 @foreach($usuarios as $user)
                 <tr>
-                    <th scope="row">{{$men->id}}</th>
+                    <th scope="row">{{$men->created_at}}</th>
                     <td>{{$user->name}}</td>
                     <td>{{$men->asunto}}</td>
                     <td>
                         <form action="{{route('mensajes.destroy',$men->id)}}" method="post">
                             <a href="{{route('mensajes.show',$men->id)}}">
-                                <button type="button" class="btn btn-secondary">Ver</button>
+                                <button type="button" class="btn btn-secondary" title="Ver"><i class="far fa-eye"></i></button>
                             </a>
                             <a href="/">
-                                <button type="button" class="btn btn-primary">Responder</button>
+                                <button type="button" class="btn btn-primary"><i class="fas fa-reply"></i></button>
                             </a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i> </button>
                         </form>
                     </td>
                 </tr>

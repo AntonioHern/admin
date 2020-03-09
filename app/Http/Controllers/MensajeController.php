@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Mensaje;
+use App\Paciente;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -18,11 +19,13 @@ class MensajeController extends Controller
      */
     public function index()
     {
+
         $mensajes=Mensaje::where('receptor_id','=',auth()->id())->get();
         $usuarios=User::where('id','!=',auth()->id())->get();
-        return view('mensajes.index',['mensajes'=>$mensajes,
+        return view('mensajes.index',['mensajes'=>$mensajes->sortByDesc('created_at'),
             'usuarios'=>$usuarios,
         ]);
+
     }
 
     /**

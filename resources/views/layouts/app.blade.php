@@ -13,8 +13,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-    <script src="dist/js/adminlte.js"></script>
-
+    <script src="{{asset('dist/js/adminlte.js')}}"></script>
+    <script src="https://kit.fontawesome.com/bfc42573e2.js" crossorigin="anonymous"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
 
@@ -144,28 +144,28 @@
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-sticky-note"></i>
-                                <p>Notas<i class="fas fa-angle-left right"></i></p>
+                                <p>Tratamientos<i class="fas fa-angle-left right"></i></p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="notas/todas"
+                                    <a href="{{url('/listarStock')}}"
                                        class="{{ Request::path() === 'notas/todas' ? 'nav-link active' : 'nav-link' }}">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Todas</p>
+                                        <p>Todos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="notas/favoritas"
+                                    <a href="{{url('/stockBajo')}}"
                                        class="{{ Request::path() === 'notas/favoritas' ? 'nav-link active' : 'nav-link' }}">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Favoritas</p>
+                                        <p>Stock Bajo</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="notas/archivadas"
+                                    <a href="{{url('/ultimosTratamientos')}}"
                                        class="{{ Request::path() === 'notas/archivadas' ? 'nav-link active' : 'nav-link' }}">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Archivadas</p>
+                                        <p>Ultimos Tratamientos</p>
                                     </a>
                                 </li>
                             </ul>
@@ -187,13 +187,14 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
-
+            @yield('content')
                 @if(session()->has('flash'))
                 <div class="container">
                     <div class="alert alert-success">{{session('flash')}}</div>
                 </div>
             @endif
-                @yield('content')
+
+
 
             <!-- /.content -->
         </div>

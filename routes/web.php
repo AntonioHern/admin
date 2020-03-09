@@ -17,15 +17,15 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/', 'HomeController');
 
-
-
-
 Route::resource('/mensajes', 'MensajeController');
 
 Route::resource('/usuarios','UserController');
 
 Route::resource('/pacientes','PacienteController');
 
+Route::get('/ultimosTratamientos','TratamientoController@ultimosTratamientos');
+Route::get('/listarStock','TratamientoController@listarStock');
+Route::get('/stockBajo','TratamientoController@stockBajo');
 Route::resource('/tratamientos', 'TratamientoController');
 
 

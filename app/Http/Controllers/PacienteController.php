@@ -21,9 +21,9 @@ class PacienteController extends Controller
     {
         if($request){
             $query=trim($request->get('search'));
-            $pacientes=Paciente::where('dni','LIKE','%'.$query.'%')
-                ->orderBy('dni','asc')
-                ->simplePaginate(7);
+            $pacientes=Paciente::where('nombre','LIKE','%'.$query.'%')
+                ->orderBy('nombre','asc')
+                ->simplePaginate(6);
             return view('pacientes.index',['pacientes'=>$pacientes,'search'=>$query]);
         }
     }

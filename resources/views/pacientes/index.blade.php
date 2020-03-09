@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2>Listas de Pacientes<a href="{{route('pacientes.create')}}">
-                <button type="button" class="btn btn-success float-right">Agregar Paciente</button>
+                <button type="button" class="btn btn-success float-right" title="Agregar Paciente"><i class="fas fa-user-plus"></i></button>
             </a></h2>
 
         <h6>
@@ -32,14 +32,15 @@
 
                         <form action="{{route('pacientes.destroy',$paciente->dni)}}" method="post">
                             <a href="{{route('pacientes.show',$paciente->dni)}}">
-                                <button type="button" class="btn btn-secondary">Ver</button>
+                                <button type="button" class="btn btn-secondary" title="Ver"><i class="far fa-eye"></i>
+                                </button>
                             </a>
                             <a href="{{route('pacientes.edit',$paciente->dni)}}">
-                                <button type="button" class="btn btn-primary">Editar</button>
+                                <button type="button" class="btn btn-primary" title="Editar"><i class="far fa-edit"></i></button>
                             </a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger" title="Eliminar"><i  class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
