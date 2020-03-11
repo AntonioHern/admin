@@ -28,7 +28,7 @@ class PacienteFormRequest extends FormRequest
             'nombre' => 'required|max:255',
             'apellido1'=>'required|max:255',
             'apellido2'=>'required|max:255',
-            'telefono' => 'required|max:9',
+            'telefono' => 'required|min:9|max:12',
             'fNacimiento' => 'required',
             'foto'=> 'image|mimes:jpeg,png|max:3000',
 

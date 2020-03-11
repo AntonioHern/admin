@@ -8,7 +8,7 @@ class CreateTratamientosTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *clear
      * @return void
      */
     public function up()

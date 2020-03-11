@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paciente extends Model
 {
-
+    protected $fillable=[
+        'dni','nombre','apellido1','apellido2','telefono','fNacimiento','foto',
+        ];
 
     //importante para poder asignar la primarykey a un string(DNI)
     protected $primaryKey = 'dni'; // or null

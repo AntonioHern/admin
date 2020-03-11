@@ -20,7 +20,7 @@ class CreatePacientesTable extends Migration
             $table->string('nombre');
             $table->string('apellido1');
             $table->string('apellido2');
-            $table->integer('telefono');
+            $table->string('telefono');
             $table->date('fNacimiento');
             $table->string('foto');
             $table->timestamps();

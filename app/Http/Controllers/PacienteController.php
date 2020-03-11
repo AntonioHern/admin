@@ -61,7 +61,7 @@ class PacienteController extends Controller
         $paciente->apellido2 = $request->apellido2;
         $paciente->foto=$nFoto;
         $paciente->fNacimiento= $request->fNacimiento;
-        $paciente->telefono=$request->telefono;
+        $paciente->telefono=str_replace(' ','',$request->telefono);
 
 
 
@@ -116,7 +116,7 @@ class PacienteController extends Controller
         $paciente->apellido2 = $request->apellido2;
         $paciente->foto=$nFoto;
         $paciente->fNacimiento= $request->fNacimiento;
-        $paciente->telefono=$request->telefono;
+        $paciente->telefono=str_replace(' ','',$request->telefono);
 
 
 

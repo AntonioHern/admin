@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
-                        <input type="number" class="form-control" name="telefono" value="{{$paciente->telefono}}" placeholder="Teléfono">
+                        <input type="text" class="form-control" name="telefono" value="{{$paciente->telefono}}" placeholder="Teléfono">
                     </div>
                     <div class="form-group">
                         <label for="fNacimiento">Fecha de Nacimiento</label>

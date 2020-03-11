@@ -17,7 +17,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="dni">DNI</label>
-                        <input type="text" class="form-control" name="dni"  placeholder="DNI">
+                        <input type="text" class="form-control" name="dni"  placeholder="Ej: 12345678X">
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
