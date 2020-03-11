@@ -73,7 +73,7 @@ class PacienteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $dni
+     * @param  var  $dni
      * @return \Illuminate\Http\Response
      */
     public function show($dni)
@@ -84,7 +84,7 @@ class PacienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $dni
+     * @param  var  $dni
      * @return \Illuminate\Http\Response
      */
     public function edit($dni)
@@ -97,7 +97,7 @@ class PacienteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $dni
+     * @param  var  $dni
      * @return \Illuminate\Http\Response
      */
     public function update(PacienteFormRequest $request, $dni)
@@ -128,7 +128,7 @@ class PacienteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $dni
+     * @param  var  $dni
      * @return \Illuminate\Http\Response
      */
     public function destroy($dni)

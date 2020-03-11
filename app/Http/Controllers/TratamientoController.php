@@ -22,7 +22,7 @@ class TratamientoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $dni
+     * @param var $dni
      * @return \Illuminate\Http\Response
      */
 

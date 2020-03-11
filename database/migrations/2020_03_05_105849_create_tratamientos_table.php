@@ -1,6 +1,5 @@
 
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +15,7 @@ class CreateTratamientosTable extends Migration
     {
         Schema::create('tratamientos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('paciente');
+            $table->string('paciente');
             $table->foreign('paciente')->references('dni')->on('pacientes')->onUpdate('cascade');
             $table->string('nMedicina');
             $table->float('dosis');

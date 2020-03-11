@@ -24,7 +24,7 @@ class PacienteFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'dni'=>'required|max:9',
+            'dni'=>'regex:"[0-9]{8}[A-Za-z]{1}"',
             'nombre' => 'required|max:255',
             'apellido1'=>'required|max:255',
             'apellido2'=>'required|max:255',

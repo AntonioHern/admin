@@ -22,6 +22,7 @@
             </tr>
             </thead>
             <tbody>
+
             @foreach( $pacientes as $paciente)
                 <tr>
                     <th scope="row">{{$paciente->dni}}</th>
