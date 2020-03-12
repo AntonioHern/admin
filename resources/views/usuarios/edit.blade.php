@@ -43,7 +43,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                    <button type="reset" class="btn btn-danger">Cancelar</button>
+                    <a href="{{url('/usuarios')}}"><button type="submit" class="btn btn-danger">Cancelar</button></a>
                 </form>
             </div>
         </div>

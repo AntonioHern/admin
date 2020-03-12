@@ -2,8 +2,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h2>Listas de Pacientes<a href="{{route('pacientes.create')}}">
-                <button type="button" class="btn btn-success float-right" title="Agregar Paciente"><i class="fas fa-user-plus"></i></button>
+        <h2>Lista de Pacientes<a href="{{route('pacientes.create')}}">
+                <button type="button" class="btn btn-success float-right" data-toggle="tooltip" data-placement="auto" title="Agregar Paciente"><i class="fas fa-user-plus"></i></button>
             </a></h2>
 
         <h6>
@@ -13,12 +13,14 @@
         </h6>
 
         <table class="table table-hover">
-            <thead>
+            <thead class="thead-dark">
             <tr>
                 <th scope="col">DNI</th>
-                <th scope="col">NOMBRE</th>
-                <th scope="col">PRIMER APELLIDO</th>
-                <th scope="col">SEGUNDO APELLIDO</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Primer apellido</th>
+                <th scope="col">Segundo apellido</th>
+                <th scope="col">Opciones</th>
+
             </tr>
             </thead>
             <tbody>
@@ -32,16 +34,18 @@
                     <td>
 
                         <form action="{{route('pacientes.destroy',$paciente->dni)}}" method="post">
+                            <div class="btn-group">
                             <a href="{{route('pacientes.show',$paciente->dni)}}">
-                                <button type="button" class="btn btn-secondary" title="Ver"><i class="far fa-eye"></i>
+                                <button type="button" class="btn btn-secondary mr-2" data-toggle="tooltip" data-placement="bottom" title="Ver"><i class="far fa-eye"></i>
                                 </button>
                             </a>
                             <a href="{{route('pacientes.edit',$paciente->dni)}}">
-                                <button type="button" class="btn btn-primary" title="Editar"><i class="far fa-edit"></i></button>
+                                <button type="button" class="btn btn-primary mr-2" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="far fa-edit"></i></button>
                             </a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" title="Eliminar"><i  class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Eliminar"><i  class="fas fa-trash-alt"></i></button>
+                            </div>
                         </form>
                     </td>
                 </tr>

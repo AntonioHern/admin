@@ -15,8 +15,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="{{asset('dist/js/adminlte.js')}}"></script>
     <script src="https://kit.fontawesome.com/bfc42573e2.js" crossorigin="anonymous"></script>
+    <script src="{{asset('js/myJs.js')}}"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -25,6 +27,7 @@
     <!-- Styles -->
     <link href="{{ asset('dist/css/adminlte.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{asset('css/estilo.css')}}" rel="stylesheet" >
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -67,9 +70,9 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ url('/') }}" class="brand-link">
-                <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                <img src="{{asset('dist/img/ampy.jpg')}}" alt="Ampy Logo" class="brand-image img-circle elevation-5"
                      style="opacity: .8">
-                <span class="brand-text font-weight-light">System Team</span>
+                <span class="brand-text font-weight-light">Ampy System</span>
             </a>
 
             <!-- Sidebar -->
@@ -180,21 +183,16 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-
-            </div>
-            <!-- /.content-header -->
 
             <!-- Main content -->
+            <div id="contenido" class="mt-3">
             @yield('content')
                 @if(session()->has('flash'))
                 <div class="container">
                     <div class="alert alert-success">{{session('flash')}}</div>
                 </div>
             @endif
-
-
+            </div>
 
             <!-- /.content -->
         </div>

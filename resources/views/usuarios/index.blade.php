@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Listas de Personal<a href="{{route('usuarios.create')}}">
-                        <button type="button" class="btn btn-success float-right" title="Añadir Usuario"><i class="fas fa-user-plus"></i></button>
+                <h2>Lista de Personal<a href="{{route('usuarios.create')}}">
+                        <button type="button" class="btn btn-success float-right" data-toggle="tooltip" data-placement="auto" title="Añadir Usuario"><i class="fas fa-user-plus"></i></button>
                     </a></h2>
                 <h6>
                     @if($search)
@@ -17,13 +17,12 @@
 
             <div class="col-md-12">
                 <table class="table table-hover">
-                    <thead>
+                    <thead class="thead-dark">
                     <tr>
                         <th>Nombre</th>
                         <th>Primer Apellido</th>
                         <th>Segundo apellido</th>
                         <th>Opciones</th>
-
                     </tr>
                     </thead>
                     <tbody>
@@ -34,24 +33,27 @@
                             <td>{{$user->apellido2}}</td>
                             <td>
                                 <form action="{{route('usuarios.destroy',$user->id)}}" method="post">
+                                    <div class="btn-group">
                                     <a href="{{route('usuarios.show',$user->id)}}">
-                                        <button type="button" class="btn btn-secondary" title="Ver"><i class="far fa-eye"></i>
+                                        <button type="button" class="btn btn-secondary mr-2"data-toggle="tooltip" data-placement="bottom" title="Ver"><i class="far fa-eye"></i>
                                         </button>
                                     </a>
                                     <a href="{{route('usuarios.edit',$user->id)}}">
-                                        <button type="button" class="btn btn-primary" title="Editar"><i class="far fa-edit"></i></button>
+                                        <button type="button" class="btn btn-primary mr-2" data-toggle="tooltip"  data-placement="bottom" title="Editar"><i class="far fa-edit"></i></button>
                                     </a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" title="Eliminar"><i class="far fa-trash-alt"></i></button>
+                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"  data-placement="bottom" title="Eliminar"><i class="far fa-trash-alt"></i></button>
+                                    </div>
                                 </form>
+
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-            </div>
 
+            </div>
         </div>
     </div>
 @endsection

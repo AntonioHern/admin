@@ -5,7 +5,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="jumbotron shadow-lg">
                     <div class="container">
-                        <img class="img-thumbnail" height="200" width="200"
+                        <img class="img-thumbnail" height="150" width="150"
                              src="{{asset('imagenes/'.$paciente->foto)}}">
                         <h1>{{$paciente->nombre}}</h1>
                         <h1>{{$paciente->apellido1}}</h1>
@@ -22,7 +22,7 @@
             <div class="col-md-8 justify-content-center align-content-center text-center">
 
                 <h2>Listas de tratamientos <a href="{{route('tratamientos.create',['dni'=>$paciente->dni])}}">
-                        <button type="button" class="btn btn-success float-right ml-5" title="Añadir tratamiento"><i class="fas fa-plus-square"></i></button>
+                        <button type="button" class="btn btn-success float-right ml-5" data-toggle="tooltip" data-placement="auto" title="Añadir tratamiento"><i class="fas fa-plus-square"></i></button>
                     </a></h2>
 
                 <h6>
