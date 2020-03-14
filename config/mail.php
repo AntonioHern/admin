@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'antonio@systemadmin.com'),
-        'name' => env('MAIL_FROM_NAME', 'Antonio'),
+        'name' => env('MAIL_FROM_NAME', Auth::user()->name),
     ],
 
     /*

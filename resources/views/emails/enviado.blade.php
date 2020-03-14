@@ -2,8 +2,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
+        <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="jumbotron shadow-lg">
                     <h1 class="display-4">Correo enviado!</h1>
@@ -15,7 +14,6 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-1"></div>
         </div>
     </div>
     @endsection
