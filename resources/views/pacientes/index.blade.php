@@ -2,9 +2,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h2>Lista de Pacientes<a href="{{route('pacientes.create')}}">
-                <button type="button" class="btn btn-success float-right" data-toggle="tooltip" data-placement="auto" title="Agregar Paciente"><i class="fas fa-user-plus"></i></button>
-            </a></h2>
+        <h2>Lista de Pacientes</h2>
 
         <h6>
             @if($search)
@@ -12,7 +10,7 @@
             @endif
         </h6>
 
-        <table class="table table-hover">
+        <table class="table table-light">
             <thead class="thead-dark">
             <tr>
                 <th scope="col">DNI</th>
@@ -52,6 +50,9 @@
             @endforeach
             </tbody>
         </table>
+        <a href="{{route('pacientes.create')}}">
+            <button type="button" class="btn btn-success float-right" data-toggle="tooltip" data-placement="auto" title="Agregar Paciente"><i class="fas fa-user-plus"></i></button>
+        </a>
         <div class="row justify-content-center">
             {{ $pacientes->links() }}
         </div>

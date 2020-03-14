@@ -21,9 +21,7 @@
             </div>
             <div class="col-md-8 justify-content-center align-content-center text-center">
 
-                <h2>Listas de tratamientos <a href="{{route('tratamientos.create',['dni'=>$paciente->dni])}}">
-                        <button type="button" class="btn btn-success float-right ml-5" data-toggle="tooltip" data-placement="auto" title="Añadir tratamiento"><i class="fas fa-plus-square"></i></button>
-                    </a></h2>
+                <h2>Listas de tratamientos </h2>
 
                 <h6>
                     @if($search ?? '')
@@ -31,13 +29,15 @@
                     @endif
                 </h6>
 
-                <table class="table table-hover">
-                    <thead>
+                <table class="table table-light">
+                    <thead class="thead-dark">
                     <tr>
                         <th scope="col">Medicina</th>
                         <th scope="col">Dosis</th>
                         <th scope="col">Cada</th>
                         <th scope="col">Stock</th>
+                        <th scope="col">Opciones</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -66,6 +66,9 @@
 
                     </tbody>
                 </table>
+                <a href="{{route('tratamientos.create',['dni'=>$paciente->dni])}}">
+                    <button type="button" class="btn btn-success float-right ml-5" data-toggle="tooltip" data-placement="auto" title="Añadir tratamiento"><i class="fas fa-plus-square"></i></button>
+                </a>
 
             </div>
 

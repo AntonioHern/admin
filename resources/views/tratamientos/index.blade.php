@@ -8,7 +8,7 @@
                 @if($search)
                     <div class="alert alert-primary">Los resultados de la búsqueda '{{$search}}' son:</div>
                 @endif
-                <table class="table table-hover">
+                <table class="table table-dark">
                     <thead>
                     <tr>
                         <th scope="col">NOMBRE</th>

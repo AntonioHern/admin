@@ -27,7 +27,7 @@
     <!-- Styles -->
     <link href="{{ asset('dist/css/adminlte.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{asset('css/estilo.css')}}" rel="stylesheet" >
+    <link href="{{asset('css/estilo.css')}}" rel="stylesheet">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -58,10 +58,11 @@
             <!-- Right navbar links -->
 
             <ul class="navbar-nav ml-auto">
-                <li><a href="/" class="mr-4 link-black">Enviar mensaje</a> </li>
-                <?php use App\Mensaje;
-                $mensajes_count = Mensaje::where('receptor_id','=',auth()->id())->count();?>
-                <li><a href="{{route('mensajes.index',auth()->id())}}" class="mr-4 link-black">Notificaciones <span class="badge badge-warning">{{$mensajes_count}}</span> </a> </li>
+                <li><a href="/" class="mr-4 link-black">Enviar mensaje</a></li>
+                <?php use App\Mensaje;use App\Paciente;use App\User;
+                $mensajes_count = Mensaje::where('receptor_id', '=', auth()->id())->count();?>
+                <li><a href="{{route('mensajes.index',auth()->id())}}" class="mr-4 link-black">Notificaciones <span
+                            class="badge badge-warning">{{$mensajes_count}}</span> </a></li>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -80,10 +81,11 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                    @if(Auth::user())
-                            <img src="{{asset('imagenes/'.Auth::user()->foto)}}" class="img-circle elevation-2" alt="Imagen">
+                        @if(Auth::user())
+                            <img src="{{asset('imagenes/'.Auth::user()->foto)}}" class="img-circle elevation-2"
+                                 alt="Imagen">
                         @else
-                        <img src="" class="img-circle elevation-2" alt="Imagen">
+                            <img src="" class="img-circle elevation-2" alt="Imagen">
                         @endif
                     </div>
                     <div class="info">
@@ -125,7 +127,7 @@
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Personal
-                                    <?php use App\User; $users_count = User::all()->count(); ?>
+                                    <?php  $users_count = User::all()->count(); ?>
                                     <span class="right badge badge-danger">{{ $users_count ?? '0' }}</span>
                                 </p>
                             </a>
@@ -136,12 +138,11 @@
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Pacientes
-                                    <?php use App\Paciente; $paciente_count = Paciente::all()->count(); ?>
+                                    <?php  $paciente_count = Paciente::all()->count(); ?>
                                     <span class="right badge badge-danger">{{ $paciente_count ?? '0' }}</span>
                                 </p>
                             </a>
                         </li>
-
 
 
                         <li class="nav-item has-treeview">
@@ -171,6 +172,13 @@
                                         <p>Ultimos Tratamientos</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{url('/recetas')}}"
+                                       class="{{ Request::path() === 'notas/archivadas' ? 'nav-link active' : 'nav-link' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Recetas</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -185,33 +193,34 @@
         <div class="content-wrapper">
 
             <!-- Main content -->
-            <div id="contenido" class="mt-3">
-            @yield('content')
+            <div id="contenido" class=" mt-4">
+                @yield('content')
                 @if(session()->has('flash'))
-                <div class="container">
-                    <div class="alert alert-success">{{session('flash')}}</div>
-                </div>
-            @endif
+                    <div class="container">
+                        <div class="alert alert-success">{{session('flash')}}</div>
+                    </div>
+                @endif
             </div>
-
-            <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer text-center">
-            <!-- NO QUITAR -->
-            <strong>&#169;Antonio</strong>
-                <div class=" d-none d-sm-inline-block ml-4">
-                    <b>Version</b> 1.2
-                </div>
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
-        </footer>
 
-
+        <!-- /.content -->
     </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer text-center">
+        <!-- NO QUITAR -->
+        <strong>&#169;Antonio</strong>
+        <div class=" d-none d-sm-inline-block ml-4">
+            <b>Version</b> 1.2
+        </div>
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </footer>
+
+
+</div>
 </div>
 </body>
 

@@ -6,3 +6,13 @@
     font-size: 12px;
 }
 
+.content-wrapper {
+    background-image: url("../imagenes/wall-3231116_1920.jpg");
+    background-size: 100%;
+    padding: 10px;
+    overflow: scroll;
+}
+
+
+
+

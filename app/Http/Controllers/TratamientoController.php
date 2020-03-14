@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Paciente;
 use App\Tratamiento;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class TratamientoController extends Controller
 {
@@ -138,7 +140,7 @@ class TratamientoController extends Controller
                 ->select('nMedicina', DB::raw('SUM(stock) as stock'))
                 ->where('nMedicina', 'LIKE', '%' . $query . '%')
                 ->groupBy('nMedicina')
-                ->having('stock', '<', 4)
+                ->having('stock', '<', 11)
                 ->orderBy('nMedicina')
                 ->get();
             $encabezado='Stock de medicinas bajo';
@@ -163,4 +165,34 @@ class TratamientoController extends Controller
                 ]);
         }
     }
+
+    public function recetas()
+    {
+
+    $lista=DB::table('tratamientos')
+        ->join('pacientes','pacientes.dni','=','tratamientos.paciente')
+        ->select('tratamientos.nMedicina', 'tratamientos.stock','pacientes.nombre as nombrePaciente',
+            'pacientes.apellido1 as primerApellido', 'pacientes.apellido2 as segundoApellido')
+        ->where('tratamientos.stock','<',10)
+        ->orderBy('tratamientos.stock','asc')
+        ->get();
+    //dd($tratamiento);
+        for ($i=0;$i<count($lista);$i++) {
+            $name['paciente'][$i]= $lista[$i]->nombrePaciente;
+            $name['apellido1'][$i] = $lista[$i]->primerApellido;
+            $name['apellido2'][$i] = $lista[$i]->segundoApellido;
+            $name['medicina'][$i]= $lista[$i]->nMedicina;
+            $name['stock'][$i] = $lista[$i]->stock;
+        }
+
+        Mail::send('emails.test',$name,function ($mensaje) {
+            $mensaje->to('pcayudan@gmail.com', 'Enfermera')->subject('Recetas');
+        });
+        return view('emails.enviado');
+
+
+
+
+    }
+
 }

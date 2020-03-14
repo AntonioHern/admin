@@ -1,11 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+    <div class="container st">
         <div class="row">
             <div class="col-md-12">
-                <h2>Lista de Personal<a href="{{route('usuarios.create')}}">
-                        <button type="button" class="btn btn-success float-right" data-toggle="tooltip" data-placement="auto" title="Añadir Usuario"><i class="fas fa-user-plus"></i></button>
-                    </a></h2>
+
+                <h2>Lista de Personal</h2>
                 <h6>
                     @if($search)
                         <div class="alert alert-primary">Los resultados de la búsqueda '{{$search}}' son:</div>
@@ -15,8 +14,8 @@
         </div>
         <div class="row">
 
-            <div class="col-md-12">
-                <table class="table table-hover">
+            <div  class="col-md-12">
+                <table class="table table-light">
                     <thead class="thead-dark">
                     <tr>
                         <th>Nombre</th>
@@ -53,6 +52,9 @@
                     </tbody>
                 </table>
 
+                <a href="{{route('usuarios.create')}}">
+                    <button type="button" class="btn btn-success float-right" data-toggle="tooltip" data-placement="auto" title="Añadir Usuario"><i class="fas fa-user-plus"></i></button>
+                </a>
             </div>
         </div>
     </div>

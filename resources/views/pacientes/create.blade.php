@@ -43,9 +43,11 @@
                         <label for="foto">Foto</label>
                         <input type="file" class="form-control" name="foto" placeholder="Foto">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-danger">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="reset" onclick= "self.location.href = '/pacientes'" class="btn btn-danger">Cancelar</button>
                 </form>
+
+
             </div>
         </div>
     </div>
