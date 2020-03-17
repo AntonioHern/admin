@@ -173,7 +173,7 @@ class TratamientoController extends Controller
 
     public function recetas()
     {
-
+    $name=[];
     $lista=DB::table('tratamientos')
         ->join('pacientes','pacientes.dni','=','tratamientos.paciente')
         ->select('tratamientos.nMedicina', 'tratamientos.stock','pacientes.nombre as nombrePaciente',

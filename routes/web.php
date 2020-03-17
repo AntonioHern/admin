@@ -22,6 +22,7 @@ Route::resource('/usuarios','UserController');
 
 Route::resource('/pacientes','PacienteController');
 
+
 Route::get('/ultimosTratamientos','TratamientoController@ultimosTratamientos');
 Route::get('/listarStock','TratamientoController@listarStock');
 Route::get('/stockBajo','TratamientoController@stockBajo');
