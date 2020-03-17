@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MensajeFormRequest;
 use App\Mensaje;
 use App\User;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class HomeController extends Controller
         $usuarios=User::where('id','!=',auth()->id())->get();
         return view('home',['usuarios'=>$usuarios]);
     }
-    public function store(Request $request)
+    public function store(MensajeFormRequest $request)
     {
         Mensaje::create([
                 'enviador_id'=>auth()->id(),

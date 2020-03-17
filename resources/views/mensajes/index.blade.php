@@ -10,8 +10,8 @@
             @endif
         </h6>
 
-        <table class="table table-hover">
-            <thead>
+        <table class="table table-light">
+            <thead class="thead-dark">
             <tr>
                 <th scope="col">FECHA</th>
                 <th scope="col">ENVIADO POR</th>

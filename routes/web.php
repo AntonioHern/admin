@@ -16,8 +16,6 @@ Auth::routes();
 
 Route::resource('/', 'HomeController');
 
-
-
 Route::resource('/mensajes', 'MensajeController');
 
 Route::resource('/usuarios','UserController');

@@ -27,7 +27,7 @@
 <body>
 <div class="container justify-content-center">
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-11">
             <h2>Tratamientos a revisar</h2>
             <table class="table">
                 <thead>
@@ -40,7 +40,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 @for ($i = 0; $i < 20; $i++)
                     @isset($paciente[$i])
                         <tr>
@@ -52,7 +51,6 @@
                         </tr>
                     @endisset
                 @endfor
-
                 </tbody>
             </table>
         </div>
