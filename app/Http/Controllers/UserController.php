@@ -6,7 +6,7 @@ use App\Http\Requests\UserFormRequest;
 use App\User;
 use Illuminate\Http\Request;
 
-
+//  Hola
 class UserController extends Controller
 {
     public function __construct()
