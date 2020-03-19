@@ -12,5 +12,13 @@
     padding: 10px;
     overflow: scroll;
 }
+.content-wrapper-login {
+    background-image: url("../imagenes/wall-3231116_1920.jpg");
+    background-size: 100%;
+}
+
+.cartel{
+    margin-top: 5%;
+}
 
 
