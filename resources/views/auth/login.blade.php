@@ -38,8 +38,8 @@
     </a>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <li><a href="/" class="mr-4 text-dark nav-link">Iniciar sesión</a></li>
-        <li><a href="/" class="mr-4 text-dark nav-link">Registro</a></li>
+        <li><a href="{{url('/')}}" class="mr-4 text-dark nav-link">Iniciar sesión</a></li>
+        <li><a href="{{url('/register')}}" class="mr-4 text-dark nav-link">Registro</a></li>
     </ul>
 </nav>
 <!-- /.navbar -->

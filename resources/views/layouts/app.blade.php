@@ -190,17 +190,15 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
 
+        <div class="content-wrapper">
             <!-- Main content -->
-            <div id="contenido" class=" mt-4">
-                @yield('content')
+            @yield('content')
                 @if(session()->has('flash'))
                     <div class="container">
                         <div class="alert alert-success">{{session('flash')}}</div>
                     </div>
                 @endif
-            </div>
         </div>
         <!-- /.content -->
     </div>

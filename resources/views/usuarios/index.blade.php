@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container st">
+    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-
+            <div class="col-md-12 mt-3">
                 <h2>Lista de Personal</h2>
                 <h6>
                     @if($search)
@@ -13,7 +12,6 @@
             </div>
         </div>
         <div class="row">
-
             <div  class="col-md-12">
                 <table class="table table-light">
                     <thead class="thead-dark">

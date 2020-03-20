@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
+        <div class="row justify-content-center">
+            <div class="col-md-10 mt-3 ">
                 <h2>{{$encabezado}}</h2>
                 @if($search)
                     <div class="alert alert-primary">Los resultados de la búsqueda '{{$search}}' son:</div>
@@ -31,7 +30,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-1"></div>
         </div>
     </div>
     @endsection

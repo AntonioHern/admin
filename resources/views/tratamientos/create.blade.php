@@ -4,7 +4,7 @@
         <form action="{{route('tratamientos.store')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-4 mt-3">
                     <div class="form-group">
                         <label for="paciente">Paciente</label>
                         <input type="text" class="form-control" name="paciente" value="{{$paciente->dni}}" readonly
@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-4 mt-3">
                     <div class="form-group">
                         <label for="nMedicina">Nombre Medicina</label>
                         <input type="text" class="form-control" name="nMedicina" placeholder="Nombre">
@@ -49,6 +49,5 @@
             <button type="submit" class="btn btn-primary">Submit</button>
             <button type="reset" class="btn btn-danger">Cancelar</button>
         </form>
-
     </div>
 @endsection

@@ -27,7 +27,7 @@
 <body>
 <div class="container justify-content-center">
     <div class="row">
-        <div class="col-md-11">
+        <div class="col-md-11 mt-3">
             <h2>Tratamientos a revisar</h2>
             <table class="table">
                 <thead>

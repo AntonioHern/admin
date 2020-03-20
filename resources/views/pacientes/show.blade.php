@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
+            <div class="col-md-4 col-md-offset-4 mt-3">
                 <div class="jumbotron shadow-lg">
                     <div class="container">
                         <img class="img-thumbnail" height="150" width="150"
@@ -19,10 +19,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 justify-content-center align-content-center text-center">
-
+            <div class="col-md-8 justify-content-center align-content-center text-center mt-3">
                 <h2>Listas de tratamientos </h2>
-
                 <h6>
                     @if($search ?? '')
                         <div class="alert alert-primary">Los resultados de la búsqueda '{{$search ?? ''}}' son:</div>
@@ -54,11 +52,11 @@
                             <td>
                                 <form action="{{route('tratamientos.destroy',$trat->id)}}" method="post">
                                     <a href="{{route('tratamientos.edit',$trat->id)}}">
-                                        <button type="button" class="btn btn-primary btn-sm" title="Editar"><i class="far fa-edit"></i></button>
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="far fa-edit"></i></button>
                                     </a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Eliminar"><i class="far fa-trash-alt"></i></button>
+                                    <button type="submit" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Eliminar" ><i class="far fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         <tr/>
