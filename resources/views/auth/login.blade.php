@@ -2,12 +2,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Administración</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
@@ -16,8 +13,6 @@
     <script src="{{asset('js/myJs.js')}}"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -38,8 +33,8 @@
     </a>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <li><a href="{{url('/')}}" class="mr-4 text-dark nav-link">Iniciar sesión</a></li>
-        <li><a href="{{url('/register')}}" class="mr-4 text-dark nav-link">Registro</a></li>
+        <li><a href="{{url('/')}}" class="mr-4 link-black">Iniciar sesión</a></li>
+        <li><a href="{{url('/register')}}" class="mr-4 link-black">Registro</a></li>
     </ul>
 </nav>
 <!-- /.navbar -->

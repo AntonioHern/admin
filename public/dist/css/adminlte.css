@@ -9966,11 +9966,11 @@ a.text-light:hover, a.text-light:focus {
 }
 
 .text-dark {
-  color: #343a40 !important;
+    color: #f33784 !important;
 }
 
 a.text-dark:hover, a.text-dark:focus {
-  color: #121416 !important;
+    color: #f33784 !important;
 }
 
 .text-body {
@@ -28749,19 +28749,19 @@ a.text-muted:hover {
 }
 
 .link-muted {
-  color: #5d6974;
+    color: #f33784;
 }
 
 .link-muted:hover, .link-muted:focus {
-  color: #464f58;
+    color: #f33784;
 }
 
 .link-black {
-  color: #6c757d;
+    color: #f33784;
 }
 
 .link-black:hover, .link-black:focus {
-  color: #e6e8ea;
+    color: #f33784;
 }
 
 .accent-primary .btn-link,

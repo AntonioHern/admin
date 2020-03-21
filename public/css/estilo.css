@@ -14,14 +14,16 @@
     margin-top: 5%;
 }
 
-.brand-text, .fa-search,.fa-bars{
+.brand-text, .fa-search,.fa-bars, .nav-icon,.nav-link{
     color: #f33784;
 }
 
-
 .content-wrapper{
     background-image: url("../imagenes/wall-3231116_1920.jpg");
+   overflow: scroll visible;
+
 }
+
 
 
 
