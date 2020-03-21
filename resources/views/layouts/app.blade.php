@@ -81,11 +81,11 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        @if(Auth::user())
+                        @if(Auth::user()->foto==='null')
+                            <img src="{{asset('imagenes/1583006635shutterstock-421316998_bg.jpg')}}" class="img-circle elevation-2" alt="Imagen">
+                        @else
                             <img src="{{asset('imagenes/'.Auth::user()->foto)}}" class="img-circle elevation-2"
                                  alt="Imagen">
-                        @else
-                            <img src="" class="img-circle elevation-2" alt="Imagen">
                         @endif
                     </div>
                     <div class="info">

@@ -87,20 +87,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="foto" class="col-md-4 col-form-label text-md-right">{{ __('Foto') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('foto') is-invalid @enderror" name="foto" value="{{ old('apellido2') }}" required autocomplete="foto" autofocus>
-
-                                @error('foto')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Dirección de correo') }}</label>
 
                             <div class="col-md-6">
@@ -135,6 +121,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
