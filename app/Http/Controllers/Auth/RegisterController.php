@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Http\Controllers\Auth\Image;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'apellido2' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'foto'=> 'image|mimes:jpeg,png|max:3000',
         ]);
     }
 
@@ -65,14 +66,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $request=app('request');
+        if($request->hasFile('foto')){
+            $foto=$request->file('foto');
+            $nFoto=time().$foto->getClientOriginalName();
+            $foto->move(public_path().'/imagenes/',$nFoto);
+        }else{
+            $nFoto='null';
+        }
+
 
         return User::create([
             'name' => $data['name'],
             'apellido1' => $data['apellido1'],
             'apellido2' => $data['apellido2'],
-            'foto' => 'null',
+            'foto' => $nFoto,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
     }
 }
