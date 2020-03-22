@@ -41,31 +41,36 @@
                     <tbody>
                     <?php use App\Tratamiento;
                     /** @var TYPE_NAME $paciente */
-                    $tratamientos = Tratamiento::where("paciente","=",$paciente->dni)->get();
+                    $tratamientos = Tratamiento::where("paciente", "=", $paciente->dni)->get();
                     ?>
-                        @foreach($tratamientos as $trat)
+                    @foreach($tratamientos as $trat)
                         <tr>
                             <th scope="row">{{$trat->nMedicina}}</th>
                             <td>{{$trat->dosis}}</td>
                             <td>{{$trat->cada}}</td>
                             <td>{{$trat->stock}}</td>
                             <td>
-                                <form action="{{route('tratamientos.destroy',$trat->id)}}" method="post">
+                                <div class="btn-group">
+
                                     <a href="{{route('tratamientos.edit',$trat->id)}}">
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="far fa-edit"></i></button>
+                                        <button type="button" class="btn btn-primary mr-2" data-toggle="tooltip"
+                                                data-placement="bottom" title="Editar"><i class="far fa-edit"></i>
+                                        </button>
                                     </a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Eliminar" ><i class="far fa-trash-alt"></i></button>
-                                </form>
+                                    <a href="{{url('/tratamientos/destroy',$trat->id)}}"
+                                       class="btn btn-danger delete"><i class="fa fa-trash-alt"></i></a>
+                                </div>
                             </td>
                         <tr/>
-                            @endforeach
+                    @endforeach
 
                     </tbody>
                 </table>
                 <a href="{{route('tratamientos.create',['dni'=>$paciente->dni])}}">
-                    <button type="button" class="btn btn-success float-right ml-5" data-toggle="tooltip" data-placement="auto" title="Añadir tratamiento"><i class="fas fa-plus-square"></i></button>
+                    <button type="button" class="btn btn-success float-right ml-5" data-toggle="tooltip"
+                            data-placement="auto" title="Añadir tratamiento"><i class="fas fa-plus-square"></i></button>
                 </a>
 
             </div>

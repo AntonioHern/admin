@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TratamientoController extends Controller
 {
@@ -56,7 +57,6 @@ class TratamientoController extends Controller
         $tratamiento->cada = $request->get('cada');
         $tratamiento->stock = $request->get('stock');
         $tratamiento->save();
-
         $dni = $request->paciente;
         return view('pacientes.show', ['paciente' => Paciente::findOrFail($dni),
         ]);

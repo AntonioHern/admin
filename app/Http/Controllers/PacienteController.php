@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PacienteFormRequest;
 use App\Paciente;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PacienteController extends Controller
 {
@@ -62,11 +63,8 @@ class PacienteController extends Controller
         $paciente->foto=$nFoto;
         $paciente->fNacimiento= $request->fNacimiento;
         $paciente->telefono=str_replace(' ','',$request->telefono);
-
-
-
         $paciente->save();
-
+        Alert::success('Paciente Creado!', 'El paciente '.$paciente->nombre.' ha sido creado con éxito');
         return redirect('/pacientes');
     }
 
@@ -117,9 +115,7 @@ class PacienteController extends Controller
         $paciente->foto=$nFoto;
         $paciente->fNacimiento= $request->fNacimiento;
         $paciente->telefono=str_replace(' ','',$request->telefono);
-
-
-
+        Alert::success('Paciente Actualizado!', 'El paciente '.$paciente->nombre.' ha sido actualizado con éxito');
         $paciente->save();
 
         return redirect('/pacientes');

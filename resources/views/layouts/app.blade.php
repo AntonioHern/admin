@@ -11,19 +11,17 @@
     <title>Administración</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{asset('dist/js/adminlte.js')}}"></script>
     <script src="https://kit.fontawesome.com/bfc42573e2.js" crossorigin="anonymous"></script>
     <script src="{{asset('js/myJs.js')}}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('dist/css/adminlte.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -82,7 +80,8 @@
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         @if(Auth::user()->foto==='null')
-                            <img src="{{asset('imagenes/1583006635shutterstock-421316998_bg.jpg')}}" class="img-circle elevation-2" alt="Imagen">
+                            <img src="{{asset('imagenes/1583006635shutterstock-421316998_bg.jpg')}}"
+                                 class="img-circle elevation-2" alt="Imagen">
                         @else
                             <img src="{{asset('imagenes/'.Auth::user()->foto)}}" class="img-circle elevation-2"
                                  alt="Imagen">
@@ -194,11 +193,7 @@
         <div class="content-wrapper">
             <!-- Main content -->
             @yield('content')
-                @if(session()->has('flash'))
-                    <div class="container">
-                        <div class="alert alert-success">{{session('flash')}}</div>
-                    </div>
-                @endif
+            @include('sweetalert::alert')
         </div>
         <!-- /.content -->
     </div>
@@ -215,8 +210,6 @@
         </aside>
         <!-- /.control-sidebar -->
     </footer>
-
-
 </div>
 </body>
 

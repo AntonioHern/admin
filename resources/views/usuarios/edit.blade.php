@@ -14,7 +14,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{route('usuarios.update', $user->id)}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('usuarios.update', $user->id)}}" id="my-form" method="post" enctype="multipart/form-data">
                     @method('PATCH')
                     @csrf
                     <div class="form-group">
@@ -42,7 +42,7 @@
                         <input type="file" class="form-control" name="foto" value="{{asset('imagenes/'.$user->foto)}}" placeholder="Foto">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="submit" class="btn btn-primary guardar">Guardar Cambios</button>
                     <a href="{{url('/usuarios')}}"><button type="submit" class="btn btn-danger">Cancelar</button></a>
                 </form>
             </div>

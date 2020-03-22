@@ -32,7 +32,7 @@
                             <td>{{$paciente->apellido1}}</td>
                             <td>{{$paciente->apellido2}}</td>
                             <td>
-                                <form action="{{route('pacientes.destroy',$paciente->dni)}}" method="post">
+
                                     <div class="btn-group">
                                         <a href="{{route('pacientes.show',$paciente->dni)}}">
                                             <button type="button" class="btn btn-secondary mr-2" data-toggle="tooltip"
@@ -46,12 +46,13 @@
                                         </a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
-                                                data-placement="bottom" title="Eliminar"><i
-                                                class="fas fa-trash-alt"></i>
-                                        </button>
+                                        <a href="{{url('pacientes/destroy',$paciente->dni)}}">
+                                            <button type="button" class="btn btn-danger delete mr-2" data-toggle="tooltip"
+                                                    data-placement="bottom"  title="Eliminar"><i class="far fa-trash-alt"></i>
+                                            </button>
+                                        </a>
+
                                     </div>
-                                </form>
                             </td>
                         </tr>
                     @endforeach

@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\UserFormRequest;
 use App\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class UserController extends Controller
@@ -57,7 +57,6 @@ class UserController extends Controller
             $nFoto=time().$foto->getClientOriginalName();
             $foto->move(public_path().'/imagenes/',$nFoto);
         }
-
         $usuario= new User();
         $usuario->name = $request->name;
         $usuario->apellido1 = $request->apellido1;
@@ -65,11 +64,8 @@ class UserController extends Controller
         $usuario->foto=$nFoto;
         $usuario->email= $request->email;
         $usuario->password=bcrypt($request->password);
-
-
-
         $usuario->save();
-
+        Alert::success('Usuario Creado!', 'El usuario '.$usuario->name.' ha sido creado con éxito');
         return redirect('/usuarios');
 
     }
@@ -104,7 +100,6 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(UserFormRequest $request, $id)
-
     {
         $nFoto="";
         if($request->hasFile('foto')){
@@ -119,9 +114,11 @@ class UserController extends Controller
         $usuario->email = $request->get('email');
         $usuario->password= bcrypt($request->get('password'));
         $usuario->foto=$nFoto;
-
         $usuario->update();
+        Alert::success('Usuario Actualizado!', 'El usuario '.$usuario->name.' ha sido actualizado con éxito');
         return redirect('/usuarios');
+
+
     }
 
     /**
@@ -135,6 +132,9 @@ class UserController extends Controller
         $usuario= User::findOrFail($id);
         $usuario->delete();
         return redirect('/usuarios');
-
     }
+
+
+
+
 }
