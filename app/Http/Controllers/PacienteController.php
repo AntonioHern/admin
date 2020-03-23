@@ -65,7 +65,7 @@ class PacienteController extends Controller
         $paciente->telefono=str_replace(' ','',$request->telefono);
         $paciente->save();
         Alert::success('Paciente Creado!', 'El paciente '.$paciente->nombre.' ha sido creado con éxito');
-        return redirect('/pacientes');
+        return redirect('/pacientes/'.$paciente->dni);
     }
 
     /**
@@ -115,10 +115,9 @@ class PacienteController extends Controller
         $paciente->foto=$nFoto;
         $paciente->fNacimiento= $request->fNacimiento;
         $paciente->telefono=str_replace(' ','',$request->telefono);
-        Alert::success('Paciente Actualizado!', 'El paciente '.$paciente->nombre.' ha sido actualizado con éxito');
         $paciente->save();
-
-        return redirect('/pacientes');
+        Alert::toast('Datos Actualizados', 'success')->position('top-right')->autoClose(5000);
+        return redirect('/pacientes/'.$paciente->dni);
     }
 
     /**

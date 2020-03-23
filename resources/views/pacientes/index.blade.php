@@ -46,8 +46,8 @@
                                         </a>
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{url('pacientes/destroy',$paciente->dni)}}">
-                                            <button type="button" class="btn btn-danger delete mr-2" data-toggle="tooltip"
+                                        <a href="{{url('pacientes/destroy',$paciente->dni)}}" class="delete">
+                                            <button type="button" class="btn btn-danger mr-2" data-toggle="tooltip"
                                                     data-placement="bottom"  title="Eliminar"><i class="far fa-trash-alt"></i>
                                             </button>
                                         </a>

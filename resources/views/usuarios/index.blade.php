@@ -41,8 +41,8 @@
                                                 data-placement="bottom" title="Editar"><i class="far fa-edit"></i>
                                         </button>
                                     </a>
-                                    <a href="{{url('usuarios/destroy',$user->id)}}">
-                                        <button type="button" class="btn btn-danger delete mr-2" data-toggle="tooltip"
+                                    <a href="{{url('usuarios/destroy',$user->id)}}" class="delete">
+                                        <button type="button" class="btn btn-danger  mr-2" data-toggle="tooltip"
                                                 data-placement="bottom"  title="Eliminar"><i class="far fa-trash-alt"></i>
                                         </button>
                                     </a>

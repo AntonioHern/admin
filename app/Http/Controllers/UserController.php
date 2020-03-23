@@ -27,6 +27,7 @@ class UserController extends Controller
                 $users=User::where('name','LIKE','%'.$query.'%')
                     ->orderBy('id','asc')
                     ->simplePaginate(7);
+
                 return view('usuarios.index',['users'=>$users,'search'=>$query]);
             }
         //$users=User::all();
@@ -57,6 +58,7 @@ class UserController extends Controller
             $nFoto=time().$foto->getClientOriginalName();
             $foto->move(public_path().'/imagenes/',$nFoto);
         }
+
         $usuario= new User();
         $usuario->name = $request->name;
         $usuario->apellido1 = $request->apellido1;
@@ -65,8 +67,8 @@ class UserController extends Controller
         $usuario->email= $request->email;
         $usuario->password=bcrypt($request->password);
         $usuario->save();
-        Alert::success('Usuario Creado!', 'El usuario '.$usuario->name.' ha sido creado con éxito');
-        return redirect('/usuarios');
+        Alert::success('Usuario Creado!', 'El usuario '.$usuario->name.' ha sido creado con éxito')->autoClose(5000);
+        return redirect('/usuarios/'.$usuario->id);
 
     }
 
@@ -115,8 +117,8 @@ class UserController extends Controller
         $usuario->password= bcrypt($request->get('password'));
         $usuario->foto=$nFoto;
         $usuario->update();
-        Alert::success('Usuario Actualizado!', 'El usuario '.$usuario->name.' ha sido actualizado con éxito');
-        return redirect('/usuarios');
+        Alert::toast('Datos Actualizados', 'success')->position('top-right')->autoClose(5000);
+        return redirect('/usuarios/'.$usuario->id);
 
 
     }
