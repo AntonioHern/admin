@@ -78,3 +78,6 @@
         </div>
     </div>
 @endsection
+@section('script')
+    <script src="{{asset('js/myJs.js')}}"></script>
+    @endsection

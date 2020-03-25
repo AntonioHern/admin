@@ -16,7 +16,7 @@ class CreateTratamientosTable extends Migration
         Schema::create('tratamientos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('paciente');
-            $table->foreign('paciente')->references('dni')->on('pacientes')->onUpdate('cascade');
+            $table->foreign('paciente')->references('dni')->on('pacientes')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nMedicina');
             $table->float('dosis');
             $table->float('cada');

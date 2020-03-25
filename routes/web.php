@@ -19,6 +19,7 @@ Route::resource('/', 'HomeController');
 Route::resource('/mensajes', 'MensajeController');
 
 Route::get('usuarios/destroy/{id}', 'UserController@destroy');
+
 Route::resource('/usuarios','UserController');
 
 Route::get('pacientes/destroy/{id}', 'PacienteController@destroy');

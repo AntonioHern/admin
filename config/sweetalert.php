@@ -38,7 +38,7 @@ return [
     | for particular modal just use the width() helper method.
     */
 
-    'width' => env('SWEET_ALERT_WIDTH', '32rem'),
+    'width' => env('SWEET_ALERT_WIDTH', '15rem'),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ return [
     */
 
     'animation' => [
-        'enable' => env('SWEET_ALERT_ANIMATION_ENABLE', false),
+        'enable' => env('SWEET_ALERT_ANIMATION_ENABLE', true),
     ],
 
     'animatecss' => env('SWEET_ALERT_ANIMATECSS', 'https://cdn.jsdelivr.net/npm/animate.css'),

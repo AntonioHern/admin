@@ -1,6 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,11 +14,13 @@
     <title>Administración</title>
 
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{asset('dist/js/adminlte.js')}}"></script>
     <script src="https://kit.fontawesome.com/bfc42573e2.js" crossorigin="anonymous"></script>
     <script src="{{asset('js/myJs.js')}}"></script>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -27,7 +32,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{asset('css/estilo.css')}}" rel="stylesheet">
 </head>
-
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app">
     <div class="wrapper">
@@ -198,19 +202,31 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer text-center">
-        <!-- NO QUITAR -->
-        <strong>&#169;Antonio</strong>
-        <div class=" d-none d-sm-inline-block ml-4">
-            <b>Version</b> 1.2
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+        <div class="p-3">
+            <h5>Title</h5>
+            <p>Sidebar content</p>
         </div>
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
     </footer>
 </div>
-</body>
+<!-- ./wrapper -->
 
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+
+</body>
 </html>

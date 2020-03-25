@@ -6,6 +6,7 @@ use App\Http\Requests\MensajeFormRequest;
 use App\Mensaje;
 use App\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -37,7 +38,11 @@ class HomeController extends Controller
                 'asunto'=>$request->asunto,
                 'cuerpo'=>$request->cuerpo,
         ]);
-        return back()->with('flash','Tu mensaje fué enviado');
+        Alert::toast('Mensaje enviado', 'success')->position('top-right')
+            ->autoClose(5000)
+            ->background('#5cb85c')
+            ->hideCloseButton();
+        return back();
     }
 
 

@@ -47,11 +47,26 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(UserFormRequest $request)
+    public function store(Request $request)
     {
+
+        $validator = \Validator::make($request->all(), [
+            'name' => 'required',
+            'apellido1' => 'required',
+            'apellido2' => 'required',
+            'email' => 'required',
+            'password'=> 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
         $nFoto="";
         if($request->hasFile('foto')){
             $foto=$request->file('foto');
@@ -67,8 +82,9 @@ class UserController extends Controller
         $usuario->email= $request->email;
         $usuario->password=bcrypt($request->password);
         $usuario->save();
-        Alert::success('Usuario Creado!', 'El usuario '.$usuario->name.' ha sido creado con éxito')->autoClose(5000);
-        return redirect('/usuarios/'.$usuario->id);
+        return redirect('/usuarios');
+
+
 
     }
 
@@ -117,7 +133,12 @@ class UserController extends Controller
         $usuario->password= bcrypt($request->get('password'));
         $usuario->foto=$nFoto;
         $usuario->update();
-        Alert::toast('Datos Actualizados', 'success')->position('top-right')->autoClose(5000);
+        Alert::toast('Datos Actualizados', 'success')
+            ->position('top-end')
+            ->autoClose(5000)
+            ->background('#5cb85c')
+           -> width('15rem')
+            ->hideCloseButton();
         return redirect('/usuarios/'.$usuario->id);
 
 

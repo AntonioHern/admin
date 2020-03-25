@@ -116,7 +116,12 @@ class PacienteController extends Controller
         $paciente->fNacimiento= $request->fNacimiento;
         $paciente->telefono=str_replace(' ','',$request->telefono);
         $paciente->save();
-        Alert::toast('Datos Actualizados', 'success')->position('top-right')->autoClose(5000);
+        Alert::toast('Datos Actualizados', 'success')
+            ->position('top-end')
+            ->autoClose(5000)->position('top-end')
+            ->background('#5cb85c')
+            -> width('15rem')
+            ->hideCloseButton();
         return redirect('/pacientes/'.$paciente->dni);
     }
 

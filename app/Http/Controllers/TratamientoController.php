@@ -58,6 +58,11 @@ class TratamientoController extends Controller
         $tratamiento->stock = $request->get('stock');
         $tratamiento->save();
         $dni = $request->paciente;
+        Alert::toast('Tratamiento creado!', 'success')
+            ->position('top-end')
+            ->autoClose(5000)->position('top-end')
+            ->background('#5cb85c')
+            ->hideCloseButton();
         return view('pacientes.show', ['paciente' => Paciente::findOrFail($dni),
         ]);
     }
@@ -101,6 +106,11 @@ class TratamientoController extends Controller
         $tratamiento->stock = $request->get('stock');
         $tratamiento->update();
         $paciente = $tratamiento->paciente;
+        Alert::toast('Tratamiento Actualizado!', 'success')
+            ->position('top-end')
+            ->autoClose(5000)->position('top-end')
+            ->background('#5cb85c')
+            ->hideCloseButton();
         return redirect('/pacientes/' . $paciente);
 
     }
