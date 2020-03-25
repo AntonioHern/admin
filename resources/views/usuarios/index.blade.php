@@ -60,7 +60,7 @@
             </div>
         </div>
         <!-- Button trigger modal -->
-        <button id="myModal2" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
+        <button  type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"
                 title="Añadir usuario"><i class="fas fa-user-plus"></i>
         </button>
 
@@ -69,6 +69,20 @@
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
+                    <script>
+                        @if (session('errors'))
+                        $('#myModal').modal({show: true});
+                        @endif
+                    </script>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="alert alert-danger" id="alert-danger" style="display:none"></div>
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Añadir Usuario</h5>
@@ -117,47 +131,6 @@
             </div>
         </div>
     </div>
-    <script>
-        jQuery(document).ready(function(){
-            $('#ajaxSubmit').click(function (e) {
-                e.preventDefault();
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    url: "{{ url('/usuarios') }}",
-                    method: 'post',
-                    data: {
-                        name: jQuery('#name').val(),
-                        apellido1: jQuery('#apellido1').val(),
-                        apellido2: jQuery('#apellido2').val(),
-                        email: jQuery('#email').val(),
-                        password: jQuery('#password').val(),
-                    },
-                    success: function (result) {
-                        if (result.errors) {
-                            swal
-                            $('.alert-danger').text('');
-
-                            $.each(result.errors, function (key, value) {
-                                $('.alert-danger').show();
-                                $('.alert-danger').append('<li>' + value + '</li>');
-                            });
-                        } else {
-                            $('.alert-danger').hide();
-                            $('#open').hide();
-                            $('#myModal').modal('hide');
-                        }
-                    }
-                });
-
-            });
-        });
-
-
-    </script>
 @endsection
 
 

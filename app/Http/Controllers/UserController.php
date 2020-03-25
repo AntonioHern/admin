@@ -51,21 +51,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
 
-        $validator = \Validator::make($request->all(), [
-            'name' => 'required',
-            'apellido1' => 'required',
-            'apellido2' => 'required',
-            'email' => 'required',
-            'password'=> 'required',
-        ]);
 
-        if ($validator->fails())
-        {
-            return response()->json(['errors'=>$validator->errors()->all()]);
-        }
 
         $nFoto="";
         if($request->hasFile('foto')){
@@ -82,7 +71,8 @@ class UserController extends Controller
         $usuario->email= $request->email;
         $usuario->password=bcrypt($request->password);
         $usuario->save();
-        return redirect('/usuarios');
+        Alert::success('Usuario Creado!', 'El paciente '.$usuario->nombre.' ha sido creado con éxito');
+        return redirect('/usuarios/'.$usuario->id);
 
 
 
